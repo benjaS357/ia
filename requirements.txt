@@ -1,0 +1,4 @@
+google-generativeai
+google-auth
+python-dotenv
+Django>=5.0.1
