@@ -1,4 +1,6 @@
-google-generativeai
-google-auth
+google-genai
+google-cloud-aiplatform
 python-dotenv
 Django>=5.0.1
+requests
+urllib3

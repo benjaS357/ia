@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f8f9fa;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -25,47 +25,50 @@
             max-width: 900px;
             height: 90vh;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            border: 1px solid #e9ecef;
         }
 
         .chat-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
+            color: #dc3545;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid #dc3545;
         }
 
         .chat-header h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
         }
 
         .clear-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
+            background: transparent;
+            border: 1px solid #dc3545;
+            color: #dc3545;
+            padding: 8px 16px;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
             transition: all 0.3s;
         }
 
         .clear-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: #dc3545;
+            color: white;
         }
 
         .chat-messages {
             flex: 1;
             overflow-y: auto;
             padding: 20px;
-            background: #f5f5f5;
+            background: white;
         }
 
         .message {
@@ -97,16 +100,126 @@
         }
 
         .message.user .message-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #dc3545;
             color: white;
-            border-bottom-right-radius: 4px;
+            border-radius: 8px;
         }
 
         .message.assistant .message-content {
+            background: #f8f9fa;
+            color: #212529;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            line-height: 1.6;
+        }
+
+        /* Estilos para formateo de respuestas SAP */
+        .message-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .message-content ul li {
+            padding: 12px;
+            margin: 8px 0;
             background: white;
-            color: #333;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 3px solid #dc3545;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 1px solid #e9ecef;
+        }
+
+        .message-content ul li:hover {
+            background: #fff5f5;
+            border-left-color: #dc3545;
+        }
+
+        .message-content strong {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .message-content h1, 
+        .message-content h2, 
+        .message-content h3 {
+            color: #dc3545;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .message-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+
+        .message-content table th {
+            background: #dc3545;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .message-content table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+
+        .message-content table tr:hover {
+            background: #fff5f5;
+        }
+
+        .message-content code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #dc3545;
+            border: 1px solid #e9ecef;
+        }
+
+        .message-content pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 10px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .message-content pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        .message-content p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .message-content p:first-child {
+            margin-top: 0;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Estilos especiales para totales y números */
+        .message-content li strong:last-child {
+            color: #28a745;
+            font-size: 15px;
         }
 
         .chat-input-container {
@@ -119,47 +232,46 @@
 
         #messageInput {
             flex: 1;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 16px;
+            padding: 12px 16px;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            font-size: 15px;
             outline: none;
             transition: border-color 0.3s;
         }
 
         #messageInput:focus {
-            border-color: #667eea;
+            border-color: #dc3545;
         }
 
         #sendBtn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #dc3545;
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
+            padding: 12px 24px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: transform 0.2s;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
         }
 
         #sendBtn:hover {
-            transform: scale(1.05);
+            background: #c82333;
         }
 
         #sendBtn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
-            transform: scale(1);
         }
 
         .typing-indicator {
             display: none;
-            padding: 15px 20px;
-            background: white;
-            border-radius: 18px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
             max-width: 70px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
         }
 
         .typing-indicator.show {
@@ -167,9 +279,9 @@
         }
 
         .typing-indicator span {
-            height: 10px;
-            width: 10px;
-            background: #667eea;
+            height: 8px;
+            width: 8px;
+            background: #dc3545;
             border-radius: 50%;
             display: inline-block;
             margin: 0 2px;
@@ -205,20 +317,20 @@
         }
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #f8f9fa;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 4px;
+            background: #dc3545;
+            border-radius: 3px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
+            background: #c82333;
         }
     </style>
 </head>
@@ -318,6 +430,19 @@
                 typingIndicator.classList.remove('show');
 
                 if (data.success) {
+                    // Mostrar logs de queries en consola del navegador
+                    if (data.query_logs && data.query_logs.length > 0) {
+                        console.group('🔍 SAP Queries Ejecutados');
+                        data.query_logs.forEach((log, index) => {
+                            console.log(`\n📊 Query #${index + 1}:`);
+                            console.log(`   Entity: ${log.entity}`);
+                            if (log.filters) console.log(`   Filters: ${log.filters}`);
+                            if (log.select) console.log(`   Select: ${log.select}`);
+                            console.log(`   Top: ${log.top || 'Sin límite'}`);
+                        });
+                        console.groupEnd();
+                    }
+                    
                     // Añadir respuesta del asistente
                     addMessageToChat('assistant', data.response);
                 } else {
@@ -346,7 +471,16 @@
             
             const contentDiv = document.createElement('div');
             contentDiv.className = 'message-content';
-            contentDiv.textContent = content;
+            
+            // Procesar formato Markdown mejorado para respuestas del asistente
+            if (role === 'assistant') {
+                content = formatSAPResponse(content);
+                const textDiv = document.createElement('div');
+                textDiv.innerHTML = content;
+                contentDiv.appendChild(textDiv);
+            } else {
+                contentDiv.textContent = content;
+            }
             
             messageDiv.appendChild(contentDiv);
             
@@ -355,6 +489,92 @@
             chatMessages.insertBefore(messageDiv, typingContainer);
             
             scrollToBottom();
+        }
+
+        function formatSAPResponse(text) {
+            // Procesar negritas **texto**
+            text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            
+            const lines = text.split('\n');
+            let formattedLines = [];
+            let inList = false;
+            let inTable = false;
+            let listNumber = 0;
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const trimmed = line.trim();
+                
+                // Detectar tabla Markdown (líneas con |)
+                if (trimmed.includes('|')) {
+                    if (!inTable) {
+                        formattedLines.push('<table>');
+                        inTable = true;
+                    }
+                    
+                    // Procesar fila de tabla
+                    const cells = trimmed.split('|').filter(cell => cell.trim());
+                    
+                    // Detectar si es la línea separadora (|---|---| etc)
+                    if (trimmed.includes('---')) {
+                        continue; // Skip separator line
+                    }
+                    
+                    // Detectar si es header (primera línea de la tabla)
+                    const isHeader = i === 0 || !formattedLines.some(l => l.includes('<tr>'));
+                    
+                    if (isHeader && inTable && !formattedLines.some(l => l.includes('<thead>'))) {
+                        formattedLines.push('<thead><tr>');
+                        cells.forEach(cell => {
+                            formattedLines.push(`<th>${cell.trim()}</th>`);
+                        });
+                        formattedLines.push('</tr></thead><tbody>');
+                    } else {
+                        formattedLines.push('<tr>');
+                        cells.forEach(cell => {
+                            formattedLines.push(`<td>${cell.trim()}</td>`);
+                        });
+                        formattedLines.push('</tr>');
+                    }
+                    
+                } else {
+                    // Cerrar tabla si estaba abierta
+                    if (inTable) {
+                        formattedLines.push('</tbody></table>');
+                        inTable = false;
+                    }
+                    
+                    // Detectar item de lista
+                    if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
+                        if (!inList) {
+                            formattedLines.push('<ul>');
+                            inList = true;
+                            listNumber = 0;
+                        }
+                        listNumber++;
+                        const content = trimmed.substring(2);
+                        formattedLines.push(`<li><span style="color: #dc3545; font-weight: bold; margin-right: 8px;">${listNumber}.</span>${content}</li>`);
+                    } else {
+                        if (inList) {
+                            formattedLines.push('</ul>');
+                            inList = false;
+                        }
+                        if (trimmed) {
+                            formattedLines.push('<p>' + trimmed + '</p>');
+                        }
+                    }
+                }
+            }
+            
+            // Cerrar elementos abiertos
+            if (inTable) {
+                formattedLines.push('</tbody></table>');
+            }
+            if (inList) {
+                formattedLines.push('</ul>');
+            }
+            
+            return formattedLines.join('');
         }
 
         async function clearHistory() {
